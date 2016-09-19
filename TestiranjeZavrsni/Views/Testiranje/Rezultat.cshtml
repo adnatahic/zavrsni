@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TestiranjeZavrsni.App_Data.Test>
+
+@{
+    ViewBag.Title = "Rezultat";
+}
+
+<h2>Rezultat</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th style="color:snow">
+            @Html.DisplayNameFor(model => model.Kategorija1.naziv)
+        </th>
+        <th style="color:snow">
+            @Html.DisplayNameFor(model => model.vrijeme)
+        </th>
+        <th style="color:snow">
+            @Html.DisplayNameFor(model => model.rezultat)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:snow">
+            @Html.DisplayFor(modelItem => item.Kategorija1.naziv)
+        </td>
+        <td style="color:snow">
+            @Html.DisplayFor(modelItem => item.vrijeme)
+        </td>
+        <td style="color:snow">
+            @Html.DisplayFor(modelItem => item.rezultat)
+        </td>
+     
+        <td>
+          
+            @Html.ActionLink("Detaljnije", "Detaljnije", new { id=item.id }) 
+          
+        </td>
+    </tr>
+}
+
+</table>

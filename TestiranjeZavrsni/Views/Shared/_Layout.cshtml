@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Online testiranje</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body style="background:url(../fonts/pozadina.jpg); width: auto; height: auto" >
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Online testiranje", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
+                @if (Session["user"] == null && Session["admin"]==null)
+                {
+                    <a href="@Url.Action("Login", "Login")" class="navbar-brand">
+                        <h4> Prijava <span class="glyphicon glyphicon-user"></span></h4>
+                    </a>
+                    <a href="@Url.Action("Registracija", "Registracija")" class="navbar-brand">
+                        <h4> Registracija <span class="glyphicon glyphicon-plus"></span></h4>
+                    </a>
+
+
+
+                }
+                else if (Session["admin"] != null)
+                {
+                    @Html.ActionLink("Upravljanje testovima", "Testiranje", "Testiranje", new { area = "" }, new { @class = "navbar-brand" });
+                    @Html.ActionLink("Registracija", "Registracija", "Registracija", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Izmjena računa", "Editovanje", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Odjava", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Testiranje", "OdaberiKategoriju", "Testiranje", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Pregled rezultata", "Rezultat", "Testiranje", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Izmjena računa", "Editovanje", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Odjava", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                }
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+      
+            <p style="color:snow">&copy; @DateTime.Now.Year - Online testiranje</p>
+       
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@model TestiranjeZavrsni.Models.GenerisiTest
+
+@{
+    ViewBag.Title = "Odaberi kategoriju testiranja";
+    var brojac = 0;
+    List<string> nazivi = new List<string>();
+    var i = 0;
+    nazivi.Add("prvi");
+    nazivi.Add("drugi");
+    nazivi.Add("treci");
+    nazivi.Add("cetvrti");
+    nazivi.Add("peti");
+    nazivi.Add("secti");
+    nazivi.Add("sedmi");
+    nazivi.Add("osmi");
+    nazivi.Add("deveti");
+    nazivi.Add("deseti");
+
+}
+
+<h2 style="text-align:left">Odaberi kategoriju testiranja</h2>
+
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th style="color:snow">
+                Test: @Model.pitanja[0].Kategorija1.naziv.ToString()
+            </th>
+        </tr>
+
+       <tr>
+
+           <th style="color:snow">
+               @Html.Label(Model.pitanja[i].tekst)
+           </th>
+           
+           <th style="color:snow">
+               @Html.RadioButton("prvi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+           </th>
+           @{ brojac++;
+               
+           }
+           <th style="color:snow">
+               @Html.RadioButton("prvi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+           </th>
+           <th style="color:snow">
+               @Html.RadioButton("prvi", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+           </th>
+           @{ i++;}
+
+       </tr>
+        
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("drugi", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("drugi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("drugo", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr>
+
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            
+            <th style="color:snow">
+                @Html.RadioButton("treci", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+            <th style="color:snow">
+                @Html.RadioButton("treci", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("treci", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr>
+       
+        <tr>
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("cetvrti", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("cetvrti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("cetvrti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr>
+
+        <tr>
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+           
+            <th style="color:snow">
+                @Html.RadioButton("peti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("peti", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("peti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr>
+           
+        <tr>
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+           
+            <th style="color:snow">
+                @Html.RadioButton("sesti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            @{ brojac++;
+                
+            }
+            <th style="color:snow">
+                @Html.RadioButton("sesti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+            <th style="color:snow">
+                @Html.RadioButton("sesti", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            @{ i++;}
+
+        </tr>
+            
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("sedmi", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("sedmi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("sedmi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr> 
+            
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            
+            <th style="color:snow">
+                @Html.RadioButton("osmi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+            <th style="color:snow">
+                @Html.RadioButton("osmi", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("osmi", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr> 
+
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            
+            <th style="color:snow">
+                @Html.RadioButton("deveti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+            <th style="color:snow">
+                @Html.RadioButton("deveti", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("deveti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr> 
+
+        <tr>
+
+            <th style="color:snow">
+                @Html.Label(Model.pitanja[i].tekst)
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("deseti", Model.pitanja[i].odgovor) @Html.Label(Model.pitanja[i].Odgovor1.tekst.ToString())
+            </th>
+            <th style="color:snow">
+                @Html.RadioButton("deseti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+            @{ brojac++;
+                i++;
+            }
+            <th style="color:snow">
+                @Html.RadioButton("deseti", -1) @Html.Label(Model.netacniOdgovori[brojac].tekst)
+            </th>
+
+
+        </tr> 
+
+    </table>
+    <input type="submit" value="Gotovo" />
+}

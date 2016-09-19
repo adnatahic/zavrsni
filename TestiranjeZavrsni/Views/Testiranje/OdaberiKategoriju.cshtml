@@ -1,0 +1,30 @@
+﻿@model TestiranjeZavrsni.Models.RadioKategorija
+
+@{
+    ViewBag.Title = "Odaberi kategoriju testiranja";
+}
+
+<h2 style="text-align:left">Odaberi kategoriju testiranja</h2>
+
+
+@using (Html.BeginForm())
+{
+<table class="table-condensed">
+    <tr>
+        <th style="color:snow">
+            Naziv kategorije:
+        </th>
+    </tr>
+
+   
+@foreach (var item in Model.kategorije)
+{
+     <tr >
+          <th style="color:snow"> @Html.RadioButton("Kol", item.id) @item.naziv</th> 
+    </tr>
+}
+
+
+</table>   
+ <input type="submit" value="Odaberi" />
+}

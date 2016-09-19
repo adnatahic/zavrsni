@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<body style="background:url(../fonts/pozadina.jpg); background-size: cover; background-repeat:no-repeat">
+
+
+
+    <h2 style="margin-top:45px; text-align:left">Prijava</h2>
+
+    @if (ViewData["triviska"] != null)
+    {
+        <script type="text/javascript">
+            var str= @ViewData["triviska"];
+               alert(str);
+        </script>
+    }
+
+    @using (Html.BeginForm())
+    {
+        <div style="color:snow">
+            @Html.Label("Korisničko ime:")
+        </div>
+        <div >
+            @Html.TextBox("name")
+        </div>
+        <div style="color:snow">
+            @Html.Label("Šifra:")
+        </div>
+        <div >
+            @Html.Password("pass")
+        </div>
+
+
+        if (ViewData["sql"] == "1")
+        {
+            <h5 style="color:red">  Pogrešni korisnički podaci. </h5>
+        }
+        else
+        {
+        }
+
+        <input type="submit" value="Prijava" />
+    }
+
+</body>

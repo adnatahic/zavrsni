@@ -1,0 +1,57 @@
+﻿@using TestiranjeZavrsni.Controllers
+
+
+
+    
+@{
+    ViewBag.Title = "Registracija";
+}
+
+<h2 style="margin-top:45px; text-align:left">Registracija</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div style="color:snow">
+        @Html.Label("Korisničko ime:")
+      
+    </div>
+   
+    <div>
+        @Html.TextBox("name")
+    </div>
+    <div style="color:snow">
+        @Html.Label("Šifra:")
+    </div>
+    <div>
+        @Html.Password("pass")
+    </div>
+
+    <div style="color:snow">
+        @Html.Label("Ponovite šifru:")
+        
+    </div>
+    <div>
+        @Html.Password("pass1")
+    </div>
+    <div>
+        @if (ViewData["registracija"] == "1")
+        {
+            <h4 style="color:red"> Uneseni username već postoji.</h4>
+        }
+        else if (ViewData["registracija"] == "2")
+        {
+            <h4 style="color:red">Unesene lozinke nisu jednake.</h4>
+        }
+        else if (ViewData["registracija"] == "3")
+        {
+            <h4 style="color:red">Lozinka mora sadržavati od 8-15 znakova(mala i velika slova, broj i specijalne znakove) .</h4>
+        }
+        else
+        {
+
+        }
+    </div>
+    <input type="submit" value="Registracija" />
+}
+

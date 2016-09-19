@@ -1,0 +1,52 @@
+﻿@model TestiranjeZavrsni.App_Data.User
+
+@{
+    ViewBag.Title = "Editovanje";
+}
+
+<h2 style="color:snow; text-align:left  ">Editovanje</h2>
+
+@using (Html.BeginForm())
+{
+    <div style="color:snow">
+        @Html.Label("Stara lozinka:")
+    </div>
+    <div>
+        @Html.Password("stara")
+    </div>
+   <div style="color:snow">
+       @Html.Label("Nova lozinka:")
+   </div>
+<div>
+    @Html.Password("pass")
+</div>
+   <div style="color:snow">
+       @Html.Label("Ponovite lozinku:")
+   </div>
+<div>
+    @Html.Password("pass1")
+</div>
+    if(ViewData["uspjelo"]=="1")
+    {
+        <h4 style="color:green"> Uspješno ste promijenili šifru!</h4>
+    }
+    else if(ViewData["uspjelo"] == "3")
+    {
+        <h4 style="color:red"> Nije ispravna sadašnja šifra! Nakon trećeg puta, morate se ponovo prijaviti na stranicu.</h4>
+    }
+    else if (ViewData["uspjelo"] == "0")
+    {
+        <h4 style="color:red"> Nisu iste šifre!</h4>
+    }
+    else if (ViewData["uspjelo"] == "4")
+    {
+        <h4 style="color:red"> Lozinka mora sadržavati od 8 - 15 znakova(mala i velika slova, broj i specijalne znakove)!</h4>
+    }
+    else
+    {
+        <h4> </h4>
+    }
+<input type="submit" value="Izmjena" />
+}
+
+

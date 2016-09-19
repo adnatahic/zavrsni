@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TestiranjeZavrsni.App_Data.Kategorija>
+
+@{
+    ViewBag.Title = "Testiranje";
+}
+
+<h2>Testiranje</h2>
+
+<p>
+    @Html.ActionLink("Kreiraj novu kategoriju", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="color:snow">
+            @Html.DisplayNameFor(model => model.naziv)
+        </th>
+        <th style="color:snow">
+            @Html.DisplayNameFor(model => model.opis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:snow">
+            @Html.DisplayFor(modelItem => item.naziv)
+        </td>
+        <td style="color:snow">
+            @Html.DisplayFor(modelItem => item.opis)
+        </td>
+        <td style="color:snow">
+            @Html.ActionLink("Uredi", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.id }) |
+            @Html.ActionLink("Prikaži pitanja", "Pitanja", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

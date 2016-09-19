@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TestiranjeZavrsni.App_Data.Kolekcija>
+
+@{
+    ViewBag.Title = "Novi Test";
+}
+
+<h2>NoviTest</h2>
+
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td> Pitanje: </td>
+        <td>
+            @Html.DisplayFor(modelItem => item)
+        </td>
+        
+       
+    </tr>
+}
+
+</table>

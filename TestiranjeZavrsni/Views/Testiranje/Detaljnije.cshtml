@@ -1,0 +1,104 @@
+﻿@model TestiranjeZavrsni.App_Data.Kolekcija
+
+@{
+    ViewBag.Title = "Detaljnije";
+}
+<body style="background:url(../fonts/pozadina.jpg); background-size: 100% 200%; background-repeat:no-repeat">
+
+    <h2>Detaljnije</h2>
+
+    <div>
+        <h4>Kolekcija</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt> Pitanje </dt>
+            <dd> Tačan odgovor</dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje4)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje4)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje5)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje5)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje6)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje6)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje7)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje7)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje8)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje8)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje9)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje9)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pitanje10)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pitanje10)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>

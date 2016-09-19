@@ -1,0 +1,49 @@
+﻿@model Tuple<IEnumerable<TestiranjeZavrsni.App_Data.Pitanje>, IEnumerable<TestiranjeZavrsni.App_Data.Kategorija>>
+
+
+@{
+    ViewBag.Title = "Pitanja";
+}
+<body style="background-color:black">
+
+    <h2>Pitanja</h2>
+
+    <p>
+        @Html.ActionLink("Kreiraj novo pitanje", "Createpitanje")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Naziv kategorije")
+            </th>
+            <th>
+                @Html.Label("Tekst pitanja")
+            </th>
+            <th>
+                @Html.Label("Odgovor")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Item1)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kategorija1.naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tekst)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Odgovor1.tekst)
+                </td>
+                <td>
+                    @Html.ActionLink("Uredi", "Editpitanje", new { id = item.id }) |
+                    @Html.ActionLink("Izbriši", "Deletepitanje", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

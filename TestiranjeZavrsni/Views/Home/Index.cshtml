@@ -1,0 +1,49 @@
+﻿<body style="background:url(../fonts/pozadina.jpg); background-size: 100% 200%; background-repeat:no-repeat">
+
+
+
+    @{
+        ViewBag.Title = "Početna stranica";
+    }
+
+    <div class="row" style="background-color:dimgray; border-radius:10px; margin:30px 1px 1px 1px">
+        <h2 class="">O nama</h2>
+        <p style="margin-left:25%; margin-right:25%">
+            Online Testiranje je web stranica koja omogućava lako testiranje znanja iz informacionih tehnologija. Pruža vam bazu sa velikim brojem kategorija za testiranje,
+            kao i pitanja iz tih kategorija.
+        </p>
+    </div>
+
+    <div class="row" style="background-color:dimgray; border-radius:10px; margin:15px 1px 1px 1px">
+        <div class="col-md-4">
+            <h2>O nama</h2>
+            <p >
+                Ako želite postati dio naše zajednice izvršite registraciju i testirajte svoje znanje!
+            </p>
+
+            @if (Session["admin"] == null && Session["user"] == null)
+            {
+                <p><a class="btn btn-default" href="Registracija/Registracija">Registrujte se &raquo;</a></p>
+            }
+        </div>
+        <div class="col-md-4">
+            <h2>Testirajte se!</h2>
+            <p>Ako imate kreiraj korisnički račun, prijavite se i izvršite testiranje iz željene oblasti!</p>
+
+            @if (Session["admin"] == null && Session["user"] == null)
+            {
+                <p><a class="btn btn-default" href="Login/Login">Prijavite se &raquo;</a></p>
+            }
+
+        </div>
+        <div class="col-md-4">
+            <h2>Kursevi</h2>
+            <p> Ako želite poboljšati svoje znanje iz informacionih tehnologija, tutorijale možete naći na sljedećoj stranici. </p>
+               <p><a class="btn btn-default" href="http://www.w3schools.com/"> W3Schools &raquo;</a></p>
+            
+
+        </div>
+
+    </div>
+
+</body>

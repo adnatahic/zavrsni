@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="onlinetestingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kategorija">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="opis" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pitanjes" Relationship="Self.FK_Pitanje_Kategorija" FromRole="Kategorija" ToRole="Pitanje" />
+    <NavigationProperty Name="Tests" Relationship="Self.FK_Test_Kategorija" FromRole="Kategorija" ToRole="Test" />
+  </EntityType>
+  <EntityType Name="Kolekcija">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pitanje1" Type="Int32" Nullable="false" />
+    <Property Name="pitanje2" Type="Int32" Nullable="false" />
+    <Property Name="pitanje3" Type="Int32" Nullable="false" />
+    <Property Name="pitanje4" Type="Int32" Nullable="false" />
+    <Property Name="pitanje5" Type="Int32" Nullable="false" />
+    <Property Name="pitanje6" Type="Int32" Nullable="false" />
+    <Property Name="pitanje7" Type="Int32" Nullable="false" />
+    <Property Name="pitanje8" Type="Int32" Nullable="false" />
+    <Property Name="pitanje9" Type="Int32" Nullable="false" />
+    <Property Name="pitanje10" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tests" Relationship="Self.FK_Test_kolekcija" FromRole="Kolekcija" ToRole="Test" />
+  </EntityType>
+  <EntityType Name="Odgovor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tekst" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pitanjes" Relationship="Self.FK_Pitanje_Odgovor" FromRole="Odgovor" ToRole="Pitanje" />
+  </EntityType>
+  <EntityType Name="Pitanje">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tekst" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="kategorija" Type="Int32" Nullable="false" />
+    <Property Name="odgovor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kategorija1" Relationship="Self.FK_Pitanje_Kategorija" FromRole="Pitanje" ToRole="Kategorija" />
+    <NavigationProperty Name="Odgovor1" Relationship="Self.FK_Pitanje_Odgovor" FromRole="Pitanje" ToRole="Odgovor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="korisnik" Type="Int32" Nullable="false" />
+    <Property Name="vrijeme" Type="DateTime" Precision="3" />
+    <Property Name="rezultat" Type="Int32" Nullable="false" />
+    <Property Name="kategorija" Type="Int32" Nullable="false" />
+    <Property Name="kolekcija" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kategorija1" Relationship="Self.FK_Test_Kategorija" FromRole="Test" ToRole="Kategorija" />
+    <NavigationProperty Name="Kolekcija1" Relationship="Self.FK_Test_kolekcija" FromRole="Test" ToRole="Kolekcija" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Test_korisnik" FromRole="Test" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tests" Relationship="Self.FK_Test_korisnik" FromRole="User" ToRole="Test" />
+  </EntityType>
+  <Association Name="FK_Pitanje_Kategorija">
+    <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="1" />
+    <End Role="Pitanje" Type="Self.Pitanje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorija">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pitanje">
+        <PropertyRef Name="kategorija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Test_Kategorija">
+    <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="1" />
+    <End Role="Test" Type="Self.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorija">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="kategorija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Test_kolekcija">
+    <End Role="Kolekcija" Type="Self.Kolekcija" Multiplicity="1" />
+    <End Role="Test" Type="Self.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kolekcija">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="kolekcija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pitanje_Odgovor">
+    <End Role="Odgovor" Type="Self.Odgovor" Multiplicity="1" />
+    <End Role="Pitanje" Type="Self.Pitanje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Odgovor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pitanje">
+        <PropertyRef Name="odgovor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Test_korisnik">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Test" Type="Self.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="korisnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kategorijas" EntityType="Self.Kategorija" />
+    <EntitySet Name="Kolekcijas" EntityType="Self.Kolekcija" />
+    <EntitySet Name="Odgovors" EntityType="Self.Odgovor" />
+    <EntitySet Name="Pitanjes" EntityType="Self.Pitanje" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tests" EntityType="Self.Test" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Pitanje_Kategorija" Association="Self.FK_Pitanje_Kategorija">
+      <End Role="Kategorija" EntitySet="Kategorijas" />
+      <End Role="Pitanje" EntitySet="Pitanjes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Test_Kategorija" Association="Self.FK_Test_Kategorija">
+      <End Role="Kategorija" EntitySet="Kategorijas" />
+      <End Role="Test" EntitySet="Tests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Test_kolekcija" Association="Self.FK_Test_kolekcija">
+      <End Role="Kolekcija" EntitySet="Kolekcijas" />
+      <End Role="Test" EntitySet="Tests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pitanje_Odgovor" Association="Self.FK_Pitanje_Odgovor">
+      <End Role="Odgovor" EntitySet="Odgovors" />
+      <End Role="Pitanje" EntitySet="Pitanjes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Test_korisnik" Association="Self.FK_Test_korisnik">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Test" EntitySet="Tests" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
